@@ -17,27 +17,26 @@ class ArticleController extends Controller
         // Retrieve all articles along with their associated user and categories
         $articles = Article::with(['user', 'categories'])->get();
 
-         //$articles = Article::with('user')->get(); 
+         //$articles = Article::with('user')->get();
 
-        //return the articles to the view 
+        //return the articles to the view
         return view('articles/index',compact('articles'));
     }
 
     public function attachCategory(Request $request, $articleId)
     {
-        //Find the article by ID
+        // Find the article by ID
         $article = Article::findOrFail($articleId);
 
-        //Attach a single category to the article 
-        $category = Category::find($request->category_id);
-        if ($category) {
-            $article->categories()->attach($category->id);
-            return redirect()->back()->with('message, category attached successfully!');
-        }
+        // Find the category by ID
+        $category = Category::findOrFail($request->category_id);
 
-        return redirect()->back()->with(error, 'Category not found.');
+        // Attach a single category to the article
+        $article->categories()->attach($category->id);
 
+        return redirect()->back()->with('message', 'Category attached successfully!');
     }
+
 
     public function detachCategory($articleId, $categoryId)
     {
@@ -66,7 +65,7 @@ class ArticleController extends Controller
         $category = Category::findOrFail($categoryId);
         $articles = $category->articles;
 
-        //Return the articles to the view 
+        //Return the articles to the view
         return view('categories.articles', compact('category', 'articles'));
     }
 }

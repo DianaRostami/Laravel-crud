@@ -32,3 +32,8 @@ Route::post('/articles/{article}/attach-category', [ArticleController::class, 'a
 Route::post('/articles/{article}/detach-category/{category}', [ArticleController::class, 'detachCategory'])->name('articles.detachCategory');
 Route::get('/articles/{article}/categories', [ArticleController::class, 'showCategories']);
 Route::get('/categories/{category}/articles', [ArticleController::class, 'showArticles']);
+
+use App\Http\Controllers\UserController;
+
+Route::get('create-user', [UserController::class, 'create'])->name('createUser');
+Route::post('store-user', [UserController::class, 'store'])->name('storeUser');

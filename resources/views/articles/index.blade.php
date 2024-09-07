@@ -4,7 +4,10 @@
     <title>Articles</title>
 </head>
 <body>
-    <h1>Articles List</h1>
+    <h1>User names</h1>
+
+    <form action="../../../app/Http/Controllers/ArticleController.php"
+    <h2>Articles List</h2>
 
     <table border="1">
         <thead>
