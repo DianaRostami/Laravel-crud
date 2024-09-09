@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>form bia bala</title>
+    <title>Information Form</title>
     <meta charset="UTF-8">
+    <!--responsive-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 <form action="{{ route('UserForm.store') }}" method="post">
     @csrf

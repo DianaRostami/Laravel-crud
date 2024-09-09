@@ -19,10 +19,9 @@ class UserController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password), //bcrypt yani chi
+            'password' => bcrypt($request->password),
         ]);
 
-        //rewrite
         return redirect()->back()->with('success', 'User added successfully!');
     }
 }

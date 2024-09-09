@@ -29,13 +29,14 @@ Route::get('/test', function () {
 //    return view('test');
 //});
 
+//session 5th
 Route::post('/articles/{article}/attach-category', [ArticleController::class, 'attachCategory'])->name('articles.attachCategory');
 Route::post('/articles/{article}/detach-category/{category}', [ArticleController::class, 'detachCategory'])->name('articles.detachCategory');
 Route::get('/articles/{article}/categories', [ArticleController::class, 'showCategories']);
 Route::get('/categories/{category}/articles', [ArticleController::class, 'showArticles']);
 
-//Route::get('/', [\App\Http\Controllers\UserController::class]);
 
+//session 6th
 use App\Http\Controllers\UserController;
 
 Route::post('/UserForm', [UserController::class, 'Store'])->name('UserForm.store');
