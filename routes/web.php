@@ -24,16 +24,19 @@ Route::get('/articles', [ArticleController::class, 'index']);
 Route::get('/test', function () {
     return 'Test route works!';
 });
-Route::get('/test-view', function () {
-    return view('test');
-});
+
+//Route::get('/test-view', function () {
+//    return view('test');
+//});
 
 Route::post('/articles/{article}/attach-category', [ArticleController::class, 'attachCategory'])->name('articles.attachCategory');
 Route::post('/articles/{article}/detach-category/{category}', [ArticleController::class, 'detachCategory'])->name('articles.detachCategory');
 Route::get('/articles/{article}/categories', [ArticleController::class, 'showCategories']);
 Route::get('/categories/{category}/articles', [ArticleController::class, 'showArticles']);
 
+//Route::get('/', [\App\Http\Controllers\UserController::class]);
+
 use App\Http\Controllers\UserController;
 
-Route::get('create-user', [UserController::class, 'create'])->name('createUser');
-Route::post('store-user', [UserController::class, 'store'])->name('storeUser');
+Route::post('/UserForm', [UserController::class, 'Store'])->name('UserForm.store');
+Route::get('/UserForm', [UserController::class, 'create'])->name('UserForm.create');
